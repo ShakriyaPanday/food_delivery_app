@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: "Food Deleivery App",
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.grey[50],
+        primaryColor: Colors.deepOrangeAccent,
         appBarTheme: AppBarTheme(color: Colors.deepOrange[400]),
       ),
       home: const HomeScreen(),
