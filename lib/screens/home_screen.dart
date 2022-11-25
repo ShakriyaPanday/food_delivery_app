@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/data/data.dart';
+import 'package:food_delivery_app/widgets/recent_order.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -58,7 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: (() {}),
                 )),
           ),
-        )
+        ),
+        RecentOrder(),
       ]),
     );
   }
