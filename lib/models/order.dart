@@ -1,5 +1,5 @@
-import 'package:flutter_food_delivery_ui/models/food.dart';
-import 'package:flutter_food_delivery_ui/models/restaurant.dart';
+import 'package:food_delivery_app/models/food.dart';
+import 'package:food_delivery_app/models/restaurant.dart';
 
 class Order {
   final Restaurant restaurant;
@@ -7,10 +7,9 @@ class Order {
   final String date;
   final int quantity;
 
-  Order({
-    this.date,
-    this.restaurant,
-    this.food,
-    this.quantity,
-  });
+  Order(
+      {required this.restaurant,
+      required this.food,
+      required this.date,
+      required this.quantity});
 }
