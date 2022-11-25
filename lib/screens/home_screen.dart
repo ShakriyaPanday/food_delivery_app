@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: ListView(children: [
+      body: ListView(physics: const BouncingScrollPhysics(), children: [
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: TextField(
