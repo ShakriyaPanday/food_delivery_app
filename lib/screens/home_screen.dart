@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/data/data.dart';
 import 'package:food_delivery_app/models/restaurant.dart';
+import 'package:food_delivery_app/screens/resturant_screen.dart';
 import 'package:food_delivery_app/widgets/rating_star.dart';
 import 'package:food_delivery_app/widgets/recent_order.dart';
 
@@ -15,65 +16,72 @@ class _HomeScreenState extends State<HomeScreen> {
   _buildResturant() {
     List<Widget> resturantList = [];
     for (var resturant in restaurants) {
-      resturantList.add(Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20.0),
-            border: Border.all(
-              width: 1.0,
-              color: Colors.grey[300]!,
-            )),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Image(
-                  height: 150.0,
-                  width: 150.0,
-                  fit: BoxFit.fill,
-                  image: AssetImage(resturant.imageUrl)),
-            ),
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.all(12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      resturant.name,
-                      style: const TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    RatingStar(rating: resturant.rating),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      resturant.address,
-                      style: const TextStyle(
-                          fontSize: 16.0, fontWeight: FontWeight.w600),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "${resturant.distance} KM far away ",
-                      style: const TextStyle(
-                          fontSize: 16.0, fontWeight: FontWeight.w600),
-                    ),
-                  ],
+      resturantList.add(GestureDetector(
+          onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: ((context) =>
+                      ResturantScreen(restaurant: resturant)))),
+          child: Container(
+            margin:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20.0),
+                border: Border.all(
+                  width: 1.0,
+                  color: Colors.grey[300]!,
+                )),
+            child: Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: Image(
+                      height: 150.0,
+                      width: 150.0,
+                      fit: BoxFit.fill,
+                      image: AssetImage(resturant.imageUrl)),
                 ),
-              ),
-            )
-          ],
-        ),
-      ));
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          resturant.name,
+                          style: const TextStyle(
+                              fontSize: 20.0, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        RatingStar(rating: resturant.rating),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          resturant.address,
+                          style: const TextStyle(
+                              fontSize: 16.0, fontWeight: FontWeight.w600),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "${resturant.distance} KM far away ",
+                          style: const TextStyle(
+                              fontSize: 16.0, fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )));
     }
     return Column(
       children: resturantList,
