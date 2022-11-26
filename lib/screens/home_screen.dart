@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/data/data.dart';
 import 'package:food_delivery_app/models/restaurant.dart';
+import 'package:food_delivery_app/widgets/rating_star.dart';
 import 'package:food_delivery_app/widgets/recent_order.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     List<Widget> resturantList = [];
     for (var resturant in restaurants) {
       resturantList.add(Container(
-        margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
@@ -45,6 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: const TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    RatingStar(rating: resturant.rating),
                     const SizedBox(
                       height: 5,
                     ),
