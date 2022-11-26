@@ -13,23 +13,63 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   _buildResturant() {
     List<Widget> resturantList = [];
-    restaurants.forEach((Restaurant resturant) {
+    for (var resturant in restaurants) {
       resturantList.add(Container(
         margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
             border: Border.all(
               width: 1.0,
               color: Colors.grey[300]!,
             )),
-        child: Image(
-            height: 150.0,
-            width: 150.0,
-            fit: BoxFit.fill,
-            image: AssetImage(resturant.imageUrl)),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Image(
+                  height: 150.0,
+                  width: 150.0,
+                  fit: BoxFit.fill,
+                  image: AssetImage(resturant.imageUrl)),
+            ),
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      resturant.name,
+                      style: const TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      resturant.address,
+                      style: const TextStyle(
+                          fontSize: 16.0, fontWeight: FontWeight.w600),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "${resturant.distance} KM far away ",
+                      style: const TextStyle(
+                          fontSize: 16.0, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ));
-    });
+    }
     return Column(
       children: resturantList,
     );
