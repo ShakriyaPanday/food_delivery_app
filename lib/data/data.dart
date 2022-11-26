@@ -27,6 +27,7 @@ final _restaurant0 = Restaurant(
   name: 'Restaurant 0',
   address: '200 Main St, New York, NY',
   rating: 5,
+  distance: 2,
   menu: [_burrito, _steak, _pasta, _ramen, _pancakes, _burger, _pizza, _salmon],
 );
 final _restaurant1 = Restaurant(
@@ -34,12 +35,14 @@ final _restaurant1 = Restaurant(
   name: 'Restaurant 1',
   address: '200 Main St, New York, NY',
   rating: 4,
+  distance: 1.3,
   menu: [_steak, _pasta, _ramen, _pancakes, _burger, _pizza],
 );
 final _restaurant2 = Restaurant(
   imageUrl: 'assets/images/restaurant2.jpg',
   name: 'Restaurant 2',
   address: '200 Main St, New York, NY',
+  distance: 2.1,
   rating: 4,
   menu: [_steak, _pasta, _pancakes, _burger, _pizza, _salmon],
 );
@@ -48,6 +51,7 @@ final _restaurant3 = Restaurant(
   name: 'Restaurant 3',
   address: '200 Main St, New York, NY',
   rating: 2,
+  distance: 2.4,
   menu: [_burrito, _steak, _burger, _pizza, _salmon],
 );
 final _restaurant4 = Restaurant(
@@ -55,6 +59,7 @@ final _restaurant4 = Restaurant(
   name: 'Restaurant 4',
   address: '200 Main St, New York, NY',
   rating: 3,
+  distance: 3.4,
   menu: [_burrito, _ramen, _pancakes, _salmon],
 );
 

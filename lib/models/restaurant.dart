@@ -5,6 +5,7 @@ class Restaurant {
   final String name;
   final String address;
   final int rating;
+  final double distance;
   final List<Food> menu;
 
   Restaurant(
@@ -12,5 +13,6 @@ class Restaurant {
       required this.name,
       required this.address,
       required this.rating,
+      required this.distance,
       required this.menu});
 }
