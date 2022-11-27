@@ -8,7 +8,7 @@ class RecentOrder extends StatelessWidget {
   _buildRecentOrder(BuildContext context, Order order) {
     return Container(
       width: 320.0,
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0),
@@ -99,7 +99,7 @@ class RecentOrder extends StatelessWidget {
         SizedBox(
           height: 120.0,
           child: ListView.builder(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.only(left: 10.0),
             scrollDirection: Axis.horizontal,
             itemCount: currentUser.orders.length,
