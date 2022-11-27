@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/models/restaurant.dart';
+import 'package:food_delivery_app/widgets/rating_star.dart';
 
 class ResturantScreen extends StatelessWidget {
   final Restaurant restaurant;
@@ -44,6 +45,40 @@ class ResturantScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      restaurant.name,
+                      style: const TextStyle(
+                          fontSize: 22.0, fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      "${restaurant.distance} KM Away",
+                      style: const TextStyle(
+                        fontSize: 18.0,
+                      ),
+                    ),
+                  ],
+                ),
+                RatingStar(rating: restaurant.rating),
+                const SizedBox(
+                  height: 6.0,
+                ),
+                Text(
+                  restaurant.address,
+                  style: const TextStyle(
+                    fontSize: 18.0,
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
