@@ -36,13 +36,16 @@ dependencies:
   
 flutter_native_splash:
   color: "#fcd303"
-  image: assets/images/splash_image.png
+  image: assets/images/splash.png
   
 
   android_12:
-    
-    image: assets/images/splash_image.png
     color: "#fcd303"
+    color_dark: "#fcd303"
+    image_dark: assets/images/splash.png
+    image: assets/images/splash.png
+    
+    
     
     
    
