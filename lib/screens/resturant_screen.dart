@@ -166,7 +166,7 @@ class ResturantScreen extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {},
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: Text(
                     "Reviews",
