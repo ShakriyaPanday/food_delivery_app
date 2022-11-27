@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/models/food.dart';
 import 'package:food_delivery_app/models/restaurant.dart';
 import 'package:food_delivery_app/widgets/rating_star.dart';
 
@@ -6,6 +7,86 @@ class ResturantScreen extends StatelessWidget {
   final Restaurant restaurant;
 
   const ResturantScreen({super.key, required this.restaurant});
+  _buildMenuItems(Food menuItems) {
+    return Center(
+      child: Stack(alignment: Alignment.center, children: [
+        Container(
+          width: 175.0,
+          height: 175.0,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(menuItems.imageUrl),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+        ),
+        Container(
+          width: 175.0,
+          height: 175.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.black.withOpacity(0.3),
+                  Colors.black87.withOpacity(0.3),
+                  Colors.black54.withOpacity(0.3),
+                  Colors.black38.withOpacity(0.3),
+                ],
+                stops: const [
+                  0.1,
+                  0.4,
+                  0.6,
+                  0.9
+                ]),
+          ),
+        ),
+        Positioned(
+          bottom: 65.0,
+          child: Column(
+            children: [
+              Text(
+                menuItems.name,
+                style: const TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  letterSpacing: 1.2,
+                ),
+              ),
+              Text(
+                '\$ ${menuItems.price}',
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  letterSpacing: 1.2,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Positioned(
+            bottom: 10.0,
+            right: 10.0,
+            child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.deepOrangeAccent,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.add,
+                    size: 30.0,
+                    color: Colors.white,
+                  ),
+                  onPressed: (() {}),
+                )))
+      ]),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +194,32 @@ class ResturantScreen extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          const Center(
+            child: Text(
+              "Menu",
+              style: TextStyle(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1.2),
+            ),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Expanded(
+            child: GridView.count(
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.all(10.0),
+              crossAxisCount: 2,
+              children: List.generate(restaurant.menu.length, (index) {
+                Food food = restaurant.menu[index];
+                return _buildMenuItems(food);
+              }),
+            ),
+          )
         ],
       ),
     );
