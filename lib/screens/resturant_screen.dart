@@ -166,31 +166,31 @@ class ResturantScreen extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {},
-                child: Padding(
+                style: TextButton.styleFrom(
+                    backgroundColor: Theme.of(context).primaryColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0))),
+                child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: Text(
                     "Reviews",
                     style: TextStyle(color: Colors.white, fontSize: 20.0),
                   ),
                 ),
+              ),
+              TextButton(
+                onPressed: () {},
                 style: TextButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0))),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: Text(
                     "Contact",
                     style: TextStyle(color: Colors.white, fontSize: 20.0),
                   ),
                 ),
-                style: TextButton.styleFrom(
-                    backgroundColor: Theme.of(context).primaryColor,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
               ),
             ],
           ),
