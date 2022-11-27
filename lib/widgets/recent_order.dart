@@ -61,7 +61,7 @@ class RecentOrder extends StatelessWidget {
             ),
           ),
           Container(
-              margin: EdgeInsets.only(right: 20.0),
+              margin: const EdgeInsets.only(right: 20.0),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
                 shape: BoxShape.circle,
