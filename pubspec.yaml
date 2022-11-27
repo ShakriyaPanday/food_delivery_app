@@ -48,7 +48,7 @@ flutter_native_splash:
    
 
   web: false
-  ios: false
+  
   
 dev_dependencies:
 
