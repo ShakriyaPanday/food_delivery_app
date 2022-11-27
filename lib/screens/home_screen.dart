@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/data/data.dart';
-import 'package:food_delivery_app/models/restaurant.dart';
 import 'package:food_delivery_app/screens/resturant_screen.dart';
 import 'package:food_delivery_app/widgets/rating_star.dart';
 import 'package:food_delivery_app/widgets/recent_order.dart';
@@ -36,11 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15.0),
-                  child: Image(
-                      height: 150.0,
-                      width: 150.0,
-                      fit: BoxFit.fill,
-                      image: AssetImage(resturant.imageUrl)),
+                  child: Hero(
+                    tag: resturant.imageUrl,
+                    child: Image(
+                        height: 150.0,
+                        width: 150.0,
+                        fit: BoxFit.fill,
+                        image: AssetImage(resturant.imageUrl)),
+                  ),
                 ),
                 Expanded(
                   child: Container(

@@ -9,7 +9,44 @@ class ResturantScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(restaurant.name),
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Hero(
+                tag: restaurant.imageUrl,
+                child: Image(
+                  height: 220.0,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
+                  image: AssetImage(restaurant.imageUrl),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 40.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: (() => Navigator.pop(context)),
+                      icon: const Icon(Icons.arrow_back),
+                      iconSize: 30.0,
+                      color: Colors.white,
+                    ),
+                    IconButton(
+                      onPressed: (() {}),
+                      icon: const Icon(Icons.favorite),
+                      iconSize: 30.0,
+                      color: Theme.of(context).primaryColor,
+                    )
+                  ],
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
